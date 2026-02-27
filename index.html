@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        === META TAGS ===
+        These tell the browser important info about our page.
+        - charset: what characters we use (UTF-8 supports all languages)
+        - viewport: makes the page work well on phones and tablets
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- This is the title that shows in the browser tab -->
+    <title>Mauke Tech Academy - Kau Mapu 2026</title>
+
+    <!--
+        === LINKING OUR CSS FILE ===
+        This connects our separate stylesheet (styles.css) to this HTML page.
+        "rel" means relationship — it's a stylesheet.
+        "href" is the path to the file.
+    -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!--
+        === GOOGLE FONTS ===
+        We load two fonts from Google Fonts (free to use):
+        - "Oswald" for headings (bold, condensed, matches our logo style)
+        - "Inter" for body text (clean, modern, very readable)
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--
+        === PAGE HEADER ===
+        This section contains our academy title and subtitle.
+        We use <header> because it's the top/intro section of the page.
+    -->
+    <header class="page-header">
+        <!--
+            === LOGO ===
+            We display the MTAC logo at the top.
+            The <img> tag loads our logo file from the same folder.
+        -->
+        <img src="MTAC_Logo.png" alt="M.T.A.C Mauke Tech Academy Logo" class="logo">
+        <h1 class="title">Mauke Tech Academy</h1>
+        <p class="subtitle">Kau Mapu 2026</p>
+    </header>
+
+    <!--
+        === MAIN CONTENT ===
+        The <main> tag wraps the primary content of the page.
+        Inside, we have a "student-grid" that holds all the student cards.
+    -->
+    <main>
+        <div class="student-grid">
+
+            <!--
+                === STUDENT CARD ===
+                Each student card is an <a> (link) tag so the whole card is clickable.
+                Inside each card:
+                  - <img> displays the student's photo (as a circle, styled in CSS)
+                  - <p> displays the student's name
+
+                TO ADD A NEW STUDENT:
+                1. Copy one entire <a class="student-card"> block
+                2. Paste it before the closing </div> of student-grid
+                3. Change the href to the student's website URL
+                4. Change the src to the student's image path
+                5. Change the name inside the <p> tag
+
+                TO USE YOUR OWN PHOTOS:
+                - Create a folder called "images" next to this file
+                - Put your photos in that folder
+                - Change src="https://..." to src="images/yourphoto.jpg"
+            -->
+
+            <!-- Student 1 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=SK&backgroundColor=374151"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!-- Student 2 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=MA&backgroundColor=4b5563"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!-- Student 3 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=TK&backgroundColor=374151"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!-- Student 4 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=RM&backgroundColor=4b5563"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!-- Student 5 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=JT&backgroundColor=374151"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!-- Student 6 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=NP&backgroundColor=4b5563"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!-- Student 7 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=AV&backgroundColor=374151"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!-- Student 8 -->
+            <a href="https://student-website.com" class="student-card">
+                <img
+                    src="https://api.dicebear.com/9.x/initials/svg?seed=KW&backgroundColor=4b5563"
+                    alt="Photo of Student Name"
+                    class="student-photo"
+                >
+                <p class="student-name">Student Name</p>
+            </a>
+
+            <!--
+                === ADD MORE STUDENTS HERE ===
+                Copy a student card block above and paste it here.
+                Then update the href, src, alt, and name.
+            -->
+
+        </div>
+    </main>
+
+    <!--
+        === PAGE FOOTER ===
+        A simple footer at the bottom of the page.
+    -->
+    <footer class="page-footer">
+        <p>Mauke Tech Academy &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

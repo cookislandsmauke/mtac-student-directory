@@ -1,0 +1,277 @@
+/*
+    ============================================
+    MAUKE TECH ACADEMY - STUDENT DIRECTORY STYLES
+    ============================================
+
+    This CSS file controls how our student directory looks.
+    CSS = Cascading Style Sheets — it's what makes HTML look good!
+
+    DESIGN: Dark, bold, and clean — matching the M.T.A.C logo.
+    We use a black background with white text, just like the logo.
+
+    HOW CSS WORKS:
+    - We select an HTML element (like "body" or ".student-card")
+    - Then we set properties inside { curly braces }
+    - Each property has a name and a value, separated by a colon
+    - Each line ends with a semicolon ;
+*/
+
+
+/* ============================================
+   CSS VARIABLES (Custom Properties)
+   ============================================
+   Variables let us define colors once and reuse them everywhere.
+   If we want to change a color, we only change it in ONE place!
+   They start with -- and live inside :root (the whole page).
+
+   Our palette matches the M.T.A.C logo: dark blacks, clean whites,
+   and subtle grays for depth.
+*/
+:root {
+    --color-bg: #0a0a0a;            /* Near-black — main page background */
+    --color-surface: #141414;        /* Slightly lighter black — for cards */
+    --color-border: #2a2a2a;         /* Dark gray — subtle borders */
+    --color-border-hover: #ffffff;   /* White — border on hover (like the logo shield) */
+    --color-text: #ffffff;           /* White — primary text */
+    --color-text-muted: #a0a0a0;    /* Medium gray — secondary/subtle text */
+    --color-accent: #d4d4d4;         /* Light gray — for the subtitle accent */
+}
+
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================
+   Browsers add default spacing to elements.
+   We reset it so everything starts from zero — gives us full control.
+*/
+
+/* The * selector means "everything on the page" */
+* {
+    margin: 0;          /* Remove default outer spacing */
+    padding: 0;         /* Remove default inner spacing */
+    box-sizing: border-box;  /* Makes width/height include padding and border */
+}
+
+/* Body is the entire visible page */
+body {
+    font-family: "Inter", sans-serif;    /* Our clean body font */
+    background-color: var(--color-bg);   /* Dark background like the logo */
+    color: var(--color-text);            /* White text on dark background */
+    min-height: 100vh;   /* vh = viewport height. 100vh = full screen height */
+    display: flex;                /* Flexbox lets us control layout direction */
+    flex-direction: column;       /* Stack children vertically (top to bottom) */
+}
+
+
+/* ============================================
+   PAGE HEADER
+   ============================================
+   The top section with our logo, academy name, and year.
+*/
+.page-header {
+    text-align: center;       /* Center all text inside */
+    padding: 48px 24px 40px;  /* Space inside: top, left/right, bottom */
+}
+
+/* The MTAC logo image */
+.logo {
+    width: 200px;               /* Set the logo width */
+    height: auto;               /* Keep the image proportions correct */
+    margin-bottom: 20px;        /* Space below the logo */
+}
+
+/* The main title — bold and condensed like the logo text */
+.title {
+    font-family: "Oswald", sans-serif;  /* Condensed bold font (matches logo) */
+    font-size: 2.5rem;                  /* rem = relative to base font size */
+    font-weight: 700;                   /* Bold */
+    color: var(--color-text);           /* White text */
+    text-transform: uppercase;          /* ALL CAPS like the logo */
+    letter-spacing: 4px;               /* Wide letter spacing for impact */
+}
+
+/* The subtitle line below the title */
+.subtitle {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-text-muted);  /* Muted gray — subtle contrast */
+    margin-top: 8px;                  /* Small gap above */
+    letter-spacing: 6px;             /* Extra wide spacing like the logo */
+    text-transform: uppercase;        /* ALL CAPS */
+}
+
+
+/* ============================================
+   STUDENT GRID
+   ============================================
+   CSS Grid creates our 4-column layout for student cards.
+   Grid is perfect when you want items in rows and columns!
+*/
+.student-grid {
+    display: grid;                              /* Activate CSS Grid */
+    grid-template-columns: repeat(4, 1fr);      /* 4 equal-width columns */
+                                                /* 1fr = 1 fraction of space */
+    gap: 32px;                                  /* Space between grid items */
+    padding: 24px 48px 64px;                    /* Inner spacing around grid */
+    max-width: 960px;                           /* Don't stretch too wide */
+    margin: 0 auto;                             /* Center the grid on page */
+    width: 100%;                                /* Fill available width */
+}
+
+
+/* ============================================
+   STUDENT CARD
+   ============================================
+   Each card is a clickable link containing a photo and name.
+   Cards have a subtle border — inspired by the shield outline in the logo.
+*/
+.student-card {
+    display: flex;               /* Flexbox to stack image and name */
+    flex-direction: column;      /* Stack vertically (image on top, name below) */
+    align-items: center;         /* Center children horizontally */
+    text-decoration: none;       /* Remove the default link underline */
+    color: var(--color-text);    /* White text */
+    padding: 28px 16px;          /* Space inside the card */
+    border-radius: 12px;         /* Slightly rounded corners */
+    border: 1px solid var(--color-border); /* Subtle dark border */
+    background-color: var(--color-surface); /* Slightly lighter than background */
+    transition: border-color 0.3s ease, transform 0.2s ease;
+                                 /* Smooth animation when hovering */
+}
+
+/* When you hover your mouse over a card */
+.student-card:hover {
+    border-color: var(--color-border-hover); /* White border on hover */
+    transform: translateY(-4px);              /* Move card up slightly */
+}
+
+
+/* ============================================
+   STUDENT PHOTO
+   ============================================
+   The circular profile image for each student.
+*/
+.student-photo {
+    width: 130px;                /* Fixed width */
+    height: 130px;               /* Fixed height (same as width = square) */
+    border-radius: 50%;          /* 50% makes a square into a perfect circle! */
+    object-fit: cover;           /* Crop image to fill the circle nicely */
+    border: 3px solid var(--color-border); /* Subtle border ring */
+    transition: border-color 0.3s ease;    /* Smooth border color change */
+}
+
+/* When hovering the card, brighten the photo border */
+.student-card:hover .student-photo {
+    border-color: var(--color-border-hover); /* White border on hover */
+}
+
+
+/* ============================================
+   STUDENT NAME
+   ============================================
+   The name text below each photo.
+*/
+.student-name {
+    margin-top: 16px;              /* Space between photo and name */
+    font-family: "Oswald", sans-serif; /* Same condensed font as title */
+    font-size: 0.95rem;            /* Slightly smaller than default */
+    font-weight: 500;              /* Medium weight */
+    text-align: center;            /* Center the name */
+    text-transform: uppercase;     /* ALL CAPS to match the logo style */
+    letter-spacing: 2px;           /* Spread letters for readability */
+    color: var(--color-text-muted); /* Gray text by default */
+    transition: color 0.3s ease;    /* Smooth color change on hover */
+}
+
+/* When hovering the card, name turns white */
+.student-card:hover .student-name {
+    color: var(--color-text);  /* Bright white */
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================
+   Simple footer at the bottom of the page.
+*/
+.page-footer {
+    text-align: center;                /* Center the text */
+    padding: 32px 24px;                /* Inner spacing */
+    color: var(--color-text-muted);    /* Muted gray text */
+    font-size: 0.8rem;                 /* Small text */
+    letter-spacing: 1px;               /* Slight spacing */
+    margin-top: auto;                  /* Push footer to the bottom of the page */
+                                       /* This works because body is display: flex */
+}
+
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================
+   Media queries let us change styles based on screen size.
+   This makes our page work well on phones and tablets!
+
+   How it works:
+   @media (max-width: 768px) means:
+   "Apply these styles ONLY when the screen is 768px wide or less"
+*/
+
+/* Tablet screens (768px and below) — switch to 3 columns */
+@media (max-width: 768px) {
+    .logo {
+        width: 160px;    /* Smaller logo */
+    }
+
+    .title {
+        font-size: 2rem;    /* Slightly smaller title */
+    }
+
+    .student-grid {
+        grid-template-columns: repeat(3, 1fr);  /* 3 columns instead of 4 */
+        gap: 20px;                               /* Less space between cards */
+        padding: 24px;                           /* Less side padding */
+    }
+
+    .student-photo {
+        width: 100px;     /* Smaller photos */
+        height: 100px;
+    }
+}
+
+/* Phone screens (480px and below) — switch to 2 columns */
+@media (max-width: 480px) {
+    .logo {
+        width: 130px;    /* Even smaller logo */
+    }
+
+    .title {
+        font-size: 1.5rem;  /* Even smaller title */
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+
+    .student-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns for small screens */
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .student-photo {
+        width: 85px;      /* Even smaller photos */
+        height: 85px;
+    }
+
+    .student-card {
+        padding: 20px 10px;   /* Less padding inside cards */
+    }
+
+    .student-name {
+        font-size: 0.8rem;    /* Slightly smaller name text */
+        letter-spacing: 1px;
+    }
+}
